@@ -18,13 +18,13 @@
 <body>
 
     <header>
-        <h1 class="fs-1 text-center py-3 fw-bold text-primary">Search Your Favourite Phone</h1>
+        <h1 class="fs-1 text-center py-3 fw-bold text-primary">Phone Market</h1>
 
         <!-- Seach Box and submit button -->
         <div class="container d-flex justify-content-center">
             <div class="d-lg-flex  search-bar">
                 <input id="search-box" class="form-control text-center" type="search"
-                    placeholder="Enter Phone Name" aria-label="Search" id="search-box">
+                    placeholder="Enter a phone Name" aria-label="Search" id="search-box">
                 <button onclick="searchPhone()" class="btn btn-primary ms-1" type="submit">Search</button>
             </div>
         </div>
@@ -37,8 +37,8 @@
         <!-- spinner ends -->
 
         <!-- error message starts -->
-        <div class="error-message" id="error-message">
-            <h1><span id="device-name"></span> Not Availble</h1>
+        <div class="error-message text-danger" id="error-message">
+            <h1><span id="device-name"></span>The phone you are searching isn't in our shop</h1>
         </div>
         <!-- error message ends -->
 
