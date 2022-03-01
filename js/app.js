@@ -8,7 +8,7 @@ document.getElementById('search-btn').addEventListener('click', function () {
     const url = `https://openapi.programming-hero.com/api/phones?search=${input.value}`;
          fetch(url)
         .then(res => res.json())
-        .then(data => allPhones(data.data))
+        .then(data => allPhones(data.data.slice(0,20)))
 });
 
 
