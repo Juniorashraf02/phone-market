@@ -41,7 +41,29 @@
     </header>
 
     <main>
+        <h1 class="fs-2 text-center py-3 fw-bold text-success">Enter a phone name</h1>
+
+        <!-- searchbox with buttons -->
+        <div class="container d-flex justify-content-center">
+            <div class="d-lg-flex w-100 search-bar">
+                <input id="search-box" class="form-control text-center me-2 p-2 fs-4" type="search" placeholder="Enter a phone name"
+                    aria-label="Search" id="search-box-2">
+                <button onclick="searchPhone()" class="btn btn-secondary fs-4" type="submit">Search</button>
+            </div>
+        </div>
+
+        <!--  phone details  -->
+        <div class="phone-detail fixed-top" id="phone-detail-container">
+            <div id="phonedetail" class="container phonedetail">
         
+            </div>
+        </div>
+        </div>
+        
+        <!-- All phone -->
+        <div class="container phones-con mt-4" id="phone-container">
+        
+        </div>
     </main>
     <footer></footer>
 
