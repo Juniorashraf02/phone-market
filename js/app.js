@@ -1,9 +1,9 @@
 const spinner = document.getElementById('spinner');
-const searchBox = document.getElementById('search-input'); // search Input;
+const input = document.getElementById('search-input'); // search Input;
 
 document.getElementById('search-btn').addEventListener('click', function () {
     spinner.style.display = "block";//loading spinner display Block;
-    const url = `https://openapi.programming-hero.com/api/phones?search=${searchBox.value}`;
+    const url = `https://openapi.programming-hero.com/api/phones?search=${input.value}`;
     fetch(url)
         .then(res => res.json())
         .then(data => allPhones(data.data))
@@ -22,7 +22,7 @@ const allPhones = data => {
         const errorMessage = document.getElementById('error-message');
         errorMessage.style.display = "flex";
         spinner.style.display = "none";
-        document.getElementById('device-name').innerText = searchBox.value; //error Handler 
+        document.getElementById('device-name').innerText = input.value; //error Handler 
     }
     else {
         for (phone of data) {
