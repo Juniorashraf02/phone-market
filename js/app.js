@@ -33,7 +33,7 @@ const allPhones = info => {
                  <div class="card-body">
                    <h4 class="card-title">${phone.phone_name}</h4>
                    <h5 class="card-title">${phone.brand}</h5>
-                   <a href="#top" class="btn btn-primary">Go somewhere</a>
+                   <a href="#top" class="btn btn-primary">Detsils</a>
                  </div>
                  </div>
             `;
