@@ -20,7 +20,7 @@
 }
 
 #spinner{
-     position: absolute;
+    position: absolute;
     top: 5;
     left: 650px;
     z-index: 1;

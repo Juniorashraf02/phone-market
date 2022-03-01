@@ -1,14 +1,14 @@
 const spinner = document.getElementById('spinner');
 const searchBox = document.getElementById('search-box'); // search Input;
 
-const searchPhone = () => {
+document.getElementById('search-btn').addEventListener('click', function () {
     spinner.style.display = "block";//loading spinner display Block;
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchBox.value}`;
     fetch(url)
         .then(res => res.json())
         .then(data => allPhones(data.data))
 
-}
+});
 
 
 const allPhones = data => {
