@@ -20,7 +20,7 @@ const allPhones = data => {
 
     if (data.length === 0) {
         const errorMessage = document.getElementById('error-message');
-        errorMessage.style.display = "flex";
+        errorMessage.style.display = "block";
         spinner.style.display = "none";
         document.getElementById('device-name').innerText = input.value; //error Handler 
     }
