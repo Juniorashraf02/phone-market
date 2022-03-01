@@ -1,43 +1,38 @@
+// Global variables
 const spinner = document.getElementById('spinner');
-const input = document.getElementById('search-input'); // search Input;
+const input = document.getElementById('search-input'); 
 
+// event handler for search button
 document.getElementById('search-btn').addEventListener('click', function () {
     spinner.style.display = "block";//loading spinner display Block;
     const url = `https://openapi.programming-hero.com/api/phones?search=${input.value}`;
-    fetch(url)
+         fetch(url)
         .then(res => res.json())
         .then(data => allPhones(data.data))
-
 });
 
 
-const allPhones = data => {
+const allPhones = info => {
 
     const phoneContainer = document.getElementById('phone-container');
     phoneContainer.textContent = "";
 
-
-
-    if (data.length === 0) {
+    if (info.length === 0) {
         const errorMessage = document.getElementById('error-message');
         errorMessage.style.display = "block";
         spinner.style.display = "none";
         document.getElementById('device-name').innerText = input.value; //error Handler 
     }
     else {
-        for (phone of data) {
+        for (phone of info) {
             const div = document.createElement('div');
             const phoneId = phone.slug;
-            // console.log(phoneId)
             div.innerHTML = `
-             
             <div class="card" onclick="loadPhoneDetail('${phoneId}')">       
-             
             <img src="${phone.image}" class="card-img-top img-fluid" alt="...">
                  <div class="card-body">
                    <h4 class="card-title">${phone.phone_name}</h4>
                    <h5 class="card-title">${phone.brand}</h5>
-                   
                    <a href="#top" class="btn btn-primary">Go somewhere</a>
                  </div>
                  </div>
@@ -45,17 +40,9 @@ const allPhones = data => {
             phoneContainer.appendChild(div);
             spinner.style.display = "none";
             document.getElementById('error-message').style.display = "none";
-
         }
-
-
-
     }
-
 }
-
-// view phone Full Details 
-// view phone Full Details 
 
 
 const loadPhoneDetail = phoneId => {
