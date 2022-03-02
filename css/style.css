@@ -35,8 +35,8 @@
 
 .close-btn{
     position: absolute;
-    top: 5;
-    left: 900px;
+    top: 10;
+    left: 75%;
     z-index: 1;
 }
 .show-more-btn{
