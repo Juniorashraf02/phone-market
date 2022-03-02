@@ -1,14 +1,14 @@
 // Global variables
+const input = document.getElementById('search-input');
 const spinner = document.getElementById('spinner');
-const input = document.getElementById('search-input'); 
 const phoneContainer = document.getElementById('phone-container');
-const errorMessage = document.getElementById('error-message');
+const errorMessage = document.getElementById('error-msg');
 
 // event handler for search button
 document.getElementById('search-btn').addEventListener('click', function () {
     spinner.style.display = 'block';
     const url = `https://openapi.programming-hero.com/api/phones?search=${input.value}`;
-         fetch(url)
+    fetch(url)
         .then(res => res.json())
         .then(phones => allPhones(phones.data))
 });
@@ -22,12 +22,12 @@ const allPhones = info => {
     if (info.length === 0) {
         errorMessage.style.display = 'block';
         spinner.style.display = 'none';
-        document.getElementById('error-msg').innerText = 'Not found!'; 
+        document.getElementById('error-msg').innerText = 'not found';
     }
     else if (info.length === -1) {
         errorMessage.style.display = 'block';
         spinner.style.display = 'none';
-        document.getElementById('error-msg').innerText = 'Not found!'; 
+        document.getElementById('error-msg').innerText = 'Not found!';
     }
     else {
         for (phone of topTwentyResult) {
@@ -48,6 +48,7 @@ const allPhones = info => {
             document.getElementById('error-msg').style.display = 'none';
             document.getElementById('show-more-btn').style.display = 'block';
 
+            // event handler for show more btn
             document.getElementById('show-more-btn').addEventListener('click', function () {
                 document.getElementById('show-more-btn').style.display = 'none';
                 for (phone of allResults) {
@@ -67,7 +68,7 @@ const allPhones = info => {
                     spinner.style.display = "none";
                     document.getElementById('error-msg').style.display = 'none';
                 }
-                
+
             })
         }
     }
@@ -108,12 +109,7 @@ const phoneAllDetails = (data) => {
          </div>
         </div>
     `;
-
-
-
 }
-
-
 
 document.onreadystatechange = function () {
     if (document.readyState !== "complete") {
@@ -122,6 +118,3 @@ document.onreadystatechange = function () {
         spinner.style.display = "none";
     }
 };
-// const closeOverlay = () => {
-//     document.getElementById('phone-detail-container').style.display = "none";
-// }
