@@ -82,7 +82,7 @@ const loadPhoneDetail = phoneId => {
         .then(data => phoneAllDetails(data.data))
 }
 
-
+// phone's details 
 const phoneAllDetails = (data) => {
 
     document.getElementById('phone-detail-container').style.display = "block";
@@ -118,6 +118,8 @@ document.onreadystatechange = function () {
         spinner.style.display = "none";
     }
 };
+
+// toast closing
 const closeOverlay = () => {
     document.getElementById('phone-detail-container').style.display = "none";
 }
