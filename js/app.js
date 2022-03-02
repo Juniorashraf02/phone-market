@@ -123,3 +123,5 @@ document.onreadystatechange = function () {
 const closeOverlay = () => {
     document.getElementById('phone-detail-container').style.display = "none";
 }
+
+

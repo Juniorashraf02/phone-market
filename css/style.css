@@ -42,7 +42,7 @@
 .show-more-btn{
     display: none;
 }
-
+/* ------------------------------------------------------------------------------------------------responsive css ----------------------------------------- */
 @media only screen and (max-width: 600px) {
     .phones-con{
         display: grid;
