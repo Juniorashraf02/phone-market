@@ -1,27 +1,26 @@
 // Global variables
 const spinner = document.getElementById('spinner');
 const input = document.getElementById('search-input'); 
+const phoneContainer = document.getElementById('phone-container');
+const errorMessage = document.getElementById('error-message');
 
 // event handler for search button
 document.getElementById('search-btn').addEventListener('click', function () {
-    spinner.style.display = "block";//loading spinner display Block;
+    spinner.style.display = 'block';
     const url = `https://openapi.programming-hero.com/api/phones?search=${input.value}`;
          fetch(url)
         .then(res => res.json())
-        .then(data => allPhones(data.data.slice(0,20)))
+        .then(phones => allPhones(phones.data))
 });
 
 
 const allPhones = info => {
-
-    const phoneContainer = document.getElementById('phone-container');
     phoneContainer.textContent = "";
-
     if (info.length === 0) {
-        const errorMessage = document.getElementById('error-message');
-        errorMessage.style.display = "block";
+        
+        errorMessage.style.display = 'block';
         spinner.style.display = "none";
-        document.getElementById('device-name').innerText = input.value; //error Handler 
+        document.getElementById('device-name').innerText = input.value; 
     }
     else {
         for (phone of info) {
@@ -83,8 +82,7 @@ const phoneAllDetails = (data) => {
 
 
 }
-// Main Body Loading Spinner 
-// Main Body Loading Spinner 
+
 
 
 document.onreadystatechange = function () {
