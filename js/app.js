@@ -23,11 +23,13 @@ const allPhones = info => {
         errorMessage.style.display = 'block';
         spinner.style.display = 'none';
         document.getElementById('error-msg').innerText = 'Not found!'; //error handle
+        document.getElementById('show-more-btn').style.display = 'none';
     }
     else if (info.length === -1) {
         errorMessage.style.display = 'block';
         spinner.style.display = 'none';
         document.getElementById('error-msg').innerText = 'Not found!'; //error handle
+        document.getElementById('show-more-btn').style.display = 'none';
     }
     else {
         for (phone of topTwentyResult) {
