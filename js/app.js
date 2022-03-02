@@ -15,19 +15,19 @@ document.getElementById('search-btn').addEventListener('click', function () {
 
 
 const allPhones = info => {
-    input.value = '';
-    const topTwentyResult = info.slice(0, 18);
-    const allResults = info;
-    phoneContainer.textContent = "";
+    input.value = '';    //search input blank
+    const topTwentyResult = info.slice(0, 18);  // only 18 phones 
+    const allResults = info; //all phones
+    phoneContainer.textContent = "";   //text-inpout blank
     if (info.length === 0) {
         errorMessage.style.display = 'block';
         spinner.style.display = 'none';
-        document.getElementById('error-msg').innerText = 'not found';
+        document.getElementById('error-msg').innerText = 'Not found!'; //error handle
     }
     else if (info.length === -1) {
         errorMessage.style.display = 'block';
         spinner.style.display = 'none';
-        document.getElementById('error-msg').innerText = 'Not found!';
+        document.getElementById('error-msg').innerText = 'Not found!'; //error handle
     }
     else {
         for (phone of topTwentyResult) {
@@ -36,7 +36,7 @@ const allPhones = info => {
             div.innerHTML = `
             <div class="card" onclick="loadPhoneDetail('${phoneId}')">       
             <img src="${phone.image}" class="card-img-top img-fluid" alt="...">
-                 <div class="card-body">
+                 <div class="card-body text-center">
                    <h4 class="card-title">${phone.phone_name}</h4>
                    <h5 class="card-title">${phone.brand}</h5>
                    <a href="#top" class="btn btn-primary">Detsils</a>
@@ -57,7 +57,7 @@ const allPhones = info => {
                     div.innerHTML = `
             <div class="card" onclick="loadPhoneDetail('${phoneId}')">       
             <img src="${phone.image}" class="card-img-top img-fluid" alt="...">
-                 <div class="card-body">
+                 <div class="card-body text-center">
                    <h4 class="card-title">${phone.phone_name}</h4>
                    <h5 class="card-title">${phone.brand}</h5>
                    <a href="#top" class="btn btn-primary">Detsils</a>
@@ -118,3 +118,6 @@ document.onreadystatechange = function () {
         spinner.style.display = "none";
     }
 };
+const closeOverlay = () => {
+    document.getElementById('phone-detail-container').style.display = "none";
+}
