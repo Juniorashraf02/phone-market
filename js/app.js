@@ -15,15 +15,22 @@ document.getElementById('search-btn').addEventListener('click', function () {
 
 
 const allPhones = info => {
+    input.value = '';
+    const topTwentyResult = info.slice(0, 18);
+    const allResults = info;
     phoneContainer.textContent = "";
     if (info.length === 0) {
-        
         errorMessage.style.display = 'block';
-        spinner.style.display = "none";
-        document.getElementById('device-name').innerText = input.value; 
+        spinner.style.display = 'none';
+        document.getElementById('error-msg').innerText = 'Not found!'; 
+    }
+    else if (info.length === -1) {
+        errorMessage.style.display = 'block';
+        spinner.style.display = 'none';
+        document.getElementById('error-msg').innerText = 'Not found!'; 
     }
     else {
-        for (phone of info) {
+        for (phone of topTwentyResult) {
             const div = document.createElement('div');
             const phoneId = phone.slug;
             div.innerHTML = `
@@ -38,7 +45,30 @@ const allPhones = info => {
             `;
             phoneContainer.appendChild(div);
             spinner.style.display = "none";
-            document.getElementById('error-message').style.display = "none";
+            document.getElementById('error-msg').style.display = 'none';
+            document.getElementById('show-more-btn').style.display = 'block';
+
+            document.getElementById('show-more-btn').addEventListener('click', function () {
+                document.getElementById('show-more-btn').style.display = 'none';
+                for (phone of allResults) {
+                    const div = document.createElement('div');
+                    const phoneId = phone.slug;
+                    div.innerHTML = `
+            <div class="card" onclick="loadPhoneDetail('${phoneId}')">       
+            <img src="${phone.image}" class="card-img-top img-fluid" alt="...">
+                 <div class="card-body">
+                   <h4 class="card-title">${phone.phone_name}</h4>
+                   <h5 class="card-title">${phone.brand}</h5>
+                   <a href="#top" class="btn btn-primary">Detsils</a>
+                 </div>
+                 </div>
+            `;
+                    phoneContainer.appendChild(div);
+                    spinner.style.display = "none";
+                    document.getElementById('error-msg').style.display = 'none';
+                }
+                
+            })
         }
     }
 }
@@ -92,6 +122,6 @@ document.onreadystatechange = function () {
         spinner.style.display = "none";
     }
 };
-const closeOverlay = () => {
-    document.getElementById('phone-detail-container').style.display = "none";
-}
+// const closeOverlay = () => {
+//     document.getElementById('phone-detail-container').style.display = "none";
+// }

@@ -40,6 +40,9 @@
     left: 900px;
     z-index: 1;
 }
+.show-more-btn{
+    display: none;
+}
 
 @media only screen and (max-width: 600px) {
     .phones-con{
